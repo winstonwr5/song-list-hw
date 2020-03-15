@@ -33,44 +33,51 @@ songs.delete('/:id', (req, res) => {
 
 // Seed
 songs.get('/seed', (req, res)=>{
-    song.create([
+    console.log('running');
+    Song.create([
         {
             Song:'Clap Hands',
             Album:'Rain Dogs',
             Artist:'Tom Waits',
             Released: 1985,
-            Likes: 20000
+            Likes: 20000,
+            Playlist: true
         },
         {
             Song:'Killing in the Name',
             Album:'Rage Against the Machine',
             Artist:'Rage Against the Machine',
             Released: 1992,
-            Likes: 50000
+            Likes: 50000,
+            Playlist: true
         },
         {
             Song:'Chucky vs. The Giant Tortoise',
             Album:'Mothership',
             Artist:'Dance Gavin Dance',
             Released: 2016,
-            Likes: 10000
+            Likes: 10000,
+            Playlist: true
         },
         {
             Song:'Satellite',
             Album:'Periphery',
             Artist:'Periphery IV: HAIL STAN',
             Released: 2019,
-            Likes: 8000
+            Likes: 8000,
+            Playlist: true
         },
         {
             Song:'lifeisgood',
             Album:'Bilmuri',
             Artist:'wet milk',
             Released: 2019,
-            Likes: 8000
+            Likes: 8000,
+            Playlist: true
         },
-    ], (err, data)=>{
-        res.redirect('/');
+    ], (error, data)=>{
+        console.log(error);
+        res.send(data);
     })
 });
 
