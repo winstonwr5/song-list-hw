@@ -18,7 +18,7 @@ class App extends React.Component {
         this.getSongs = this.getSongs.bind(this)
         this.handleAddSong = this.handleAddSong.bind(this)
         this.deleteSong = this.deleteSong.bind(this)
-        this.toggleLiked = this.toggleLiked.bind(this)
+        this.toggleOnPlaylist = this.toggleOnPlaylist.bind(this)
         this.getSong = this.getSong.bind(this)
     }
     componentDidMount(){

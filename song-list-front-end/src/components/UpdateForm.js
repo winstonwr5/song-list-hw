@@ -80,8 +80,8 @@ async deleteSong (id){
               type="text"
               id="onPlaylist"
             />
-            <input type="submit" value="Update Holiday" className="button-primary" />
-            <button className="updateButtom"> Don't Update </button>
+            <input type="submit" value="Update Song" className="button-primary" />
+            <button className="updateButton"> Don't Update </button>
           </div>
         </form>
       </div>
