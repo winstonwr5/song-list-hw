@@ -5,7 +5,8 @@ const songSchema = mongoose.Schema({
     Album: [{type: String}],
     Artist: [{type: String}],
     Released: [{type: Number}],
-    Likes: [{type: Number}]
+    Likes: [{type: Number}],
+    Playlist: {type: Boolean, default: false}
 })
 
 module.exports = mongoose.model('Song', songSchema )
