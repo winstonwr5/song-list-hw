@@ -1,6 +1,6 @@
 import React from 'react'
 import './css/materialize.min.css'
-// import NewForm from './components/NewForm.js'
+import NewForm from './components/NewForm.js'
 import Show from './components/Show.js'
 let baseURL = process.env.REACT_APP_BASEURL
 if (process.env.NODE_ENV === 'development') {
@@ -55,9 +55,7 @@ class App extends React.Component {
            this.state.songs.findIndex(song =>
            song._id === id)
            const copySongs =
-           //spread operator copies the array and prevents you from mutating state. this is making a brand new array - and passing by REFERENCE to the original array
             [...this.state.songs]
-           //this BELOW will find the holiday and splice it out of the copyHolidays array
            copySongs.splice(foundSong, 1)
            this.setState({songs: copySongs})
      } catch(e){
@@ -92,6 +90,9 @@ class App extends React.Component {
         return (
             <div className='container'>
                 <h1>SONGS</h1>
+                <NewForm
+                handleAddSong={this.handleAddSong}
+                baseURL={baseURL} />
                 <table className="highlight">
                    <tbody>
                      { this.state.songs.map(song => {
