@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/materialize.css'
+import './css/materialize.min.css'
 let baseURL = process.env.REACT_APP_BASEURL
 
 if (process.env.NODE_ENV === 'development') {
@@ -54,7 +54,7 @@ class App extends React.Component {
         return (
             <div className='container'>
                 <h1>SONGS</h1>
-                <table>
+                <table className="highlight">
                     <tbody>
                       { this.state.songs.map(song => {
                           return (
