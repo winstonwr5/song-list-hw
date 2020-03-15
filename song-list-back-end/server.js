@@ -1,12 +1,14 @@
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
+app.use(morgan('tiny'))
 const PORT = 3003
-// const cors = require('cors')
+const cors = require('cors')
 const songController = require('./controllers/songs.js')
 const mongoose = require('mongoose')
 app.use(express.json())
 
-const whitelist = ['http://localhost:3000']
+const whitelist = ['http://localhost:3000','http://localhost:3003']
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
@@ -17,6 +19,7 @@ const corsOptions = {
     }
 }
 app.use(cors(corsOptions))
+
 
 mongoose.connection.on('error', error => { console.log(error.message + 'Forgot Mongo!')})
 mongoose.connection.on('Disconnected', ()=> console.log('Disconnected'))
