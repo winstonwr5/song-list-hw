@@ -1,5 +1,6 @@
 import React from 'react'
 import './css/materialize.min.css'
+import './css/index.css'
 import NewForm from './components/NewForm.js'
 import Show from './components/Show.js'
 let baseURL = process.env.REACT_APP_BASEURL
@@ -89,10 +90,12 @@ class App extends React.Component {
     render() {
         return (
             <div className='container'>
-                <h1>SONGS</h1>
-                <NewForm
-                handleAddSong={this.handleAddSong}
-                baseURL={baseURL} />
+                <h1 className="center-align">SONGS</h1>
+                <div className='new-form'>
+                    <NewForm
+                    handleAddSong={this.handleAddSong}
+                    baseURL={baseURL} />
+                </div>
                 <table className="highlight">
                    <tbody>
                      { this.state.songs.map(song => {
@@ -106,8 +109,6 @@ class App extends React.Component {
                              <td  onDoubleClick={() => this.togglePlaylist(song)}>
                                  {song.Playlist ? 'On playlist': 'Not on playlist' }
                              </td>
-                             <td onClick ={() => {
-                                this.deleteSong(song._id)}}>X</td>
                              </tr>
                          )
                      })

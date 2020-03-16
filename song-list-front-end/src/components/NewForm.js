@@ -41,15 +41,15 @@ async handleSubmit (event) {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="Song">Song</label>
+        <label className="label" htmlFor="Song">Song</label>
         <input type="text" id="Song" name="Song" onChange={this.handleChange} value={this.state.Song} placeholder="add a song"/>
-        <label htmlFor="name">Album</label>
+        <label className="label" htmlFor="name">Album</label>
         <input type="text" id="Album" name="Album" onChange={this.handleChange} value={this.state.Album} placeholder="add an album"/>
-        <label htmlFor="name">Artist</label>
+        <label className="label" htmlFor="name">Artist</label>
         <input type="text" id="Artist" name="Artist" onChange={this.handleChange} value={this.state.Artist} placeholder="add an artist"/>
-        <label htmlFor="name">Release Date</label>
+        <label className="label" htmlFor="name">Release Date</label>
         <input type="number" id="Released" name="Released" onChange={this.handleChange} value={this.state.Released} placeholder="Release Date"/>
-        <label htmlFor="name">Likes</label>
+        <label className="label" htmlFor="name">Likes</label>
         <input type="number" id="Likes" name="Likes" onChange={this.handleChange} value={this.state.Likes} />
         <input type="submit" value="Add Your Song"/>
       </form>
