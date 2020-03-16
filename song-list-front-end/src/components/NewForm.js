@@ -3,11 +3,11 @@ class NewForm extends React.Component {
   constructor (props) {
   super(props)
   this.state = {
-      song: '',
-      album: '',
-      artist: '',
-      release: 0 ,
-      likes: 0
+      Song: '',
+      Album: '',
+      Artist: '',
+      Released: 0 ,
+      Likes: 0
   }
 this.handleChange = this.handleChange.bind(this)
 this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,9 +18,9 @@ handleChange (event) {
 async handleSubmit (event) {
     event.preventDefault()
     try{
-      let response =   await fetch(this.props.baseURL + '/holidays', {
+      let response =   await fetch(this.props.baseURL + '/songs', {
           method: 'POST',
-          body: JSON.stringify({name: this.state.song}),
+          body: JSON.stringify({Song: this.state.Song, Album: this.state.Album, Artist: this.state.Artist, Released: this.state.Released, Likes: this.state.Released}),
           headers: {
               'Content-Type': 'application/json'
             }
@@ -28,29 +28,29 @@ async handleSubmit (event) {
           let data =  await response.json()
           this.props.handleAddSong(data)
           this.setState({
-              song: '',
-              album: '',
-              artist: '',
-              release: 0 ,
-              likes: 0
+              Song: '',
+              Album: '',
+              Artist: '',
+              Released: 0 ,
+              Likes: 0
           })
         }catch(e){
-          console.e({'Error': e})
+          console.error({'Error': e})
         }
       }
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Song</label>
-        <input type="text" id="song" name="song" onChange={this.handleChange} value={this.state.song.song} placeholder="add a song"/>
+        <label htmlFor="Song">Song</label>
+        <input type="text" id="Song" name="Song" onChange={this.handleChange} value={this.state.Song} placeholder="add a song"/>
         <label htmlFor="name">Album</label>
-        <input type="text" id="album" name="album" onChange={this.handleChange} value={this.state.song.album} placeholder="add an album"/>
+        <input type="text" id="Album" name="Album" onChange={this.handleChange} value={this.state.Album} placeholder="add an album"/>
         <label htmlFor="name">Artist</label>
-        <input type="text" id="artist" name="artist" onChange={this.handleChange} value={this.state.song.artist} placeholder="add an artist"/>
+        <input type="text" id="Artist" name="Artist" onChange={this.handleChange} value={this.state.Artist} placeholder="add an artist"/>
         <label htmlFor="name">Release Date</label>
-        <input type="number" id="release" name="release" onChange={this.handleChange} value={this.state.song.release} placeholder="Release Date"/>
+        <input type="number" id="Released" name="Released" onChange={this.handleChange} value={this.state.Released} placeholder="Release Date"/>
         <label htmlFor="name">Likes</label>
-        <input type="number" id="likes" name="likes" onChange={this.handleChange} value={this.state.song.likes} />
+        <input type="number" id="Likes" name="Likes" onChange={this.handleChange} value={this.state.Likes} />
         <input type="submit" value="Add Your Song"/>
       </form>
     )

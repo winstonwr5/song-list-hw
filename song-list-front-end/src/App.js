@@ -106,6 +106,8 @@ class App extends React.Component {
                              <td  onDoubleClick={() => this.togglePlaylist(song)}>
                                  {song.Playlist ? 'On playlist': 'Not on playlist' }
                              </td>
+                             <td onClick ={() => {
+                                this.deleteSong(song._id)}}>X</td>
                              </tr>
                          )
                      })
