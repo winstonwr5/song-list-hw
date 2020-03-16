@@ -3,9 +3,7 @@ body, html {
 }
 
 body  {
-    background: url('https://images5.alphacoders.com/103/thumb-1920-1035809.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('https://images5.alphacoders.com/103/thumb-1920-1035809.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
